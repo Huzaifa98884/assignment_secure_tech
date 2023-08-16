@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../Controllers/loginController.dart';
 import '../Models/loginModel.dart';
 import '../Models/loginResponseModel.dart';
+import '../constants_and_widgets/apiConstants.dart';
 import '../constants_and_widgets/constants.dart';
 import '../constants_and_widgets/textField.dart';
 
@@ -48,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final loginResponse = await _loginController.loginUser(loginModel);
 
       if (loginResponse.token != null) {
+        ApiConstants.token = loginResponse.token;
         Navigator.pushReplacementNamed(context, "/all_products");
       } else {
         Fluttertoast.showToast(

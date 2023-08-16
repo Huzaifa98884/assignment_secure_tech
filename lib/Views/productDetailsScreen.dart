@@ -42,8 +42,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   void initState() {
     super.initState();
     final String productUrl =
-        ApiConstants.getEndpoint(ApiEndpoint.singleProduct, widget.productId);
-    productDetails = ProductDetailsController().fetchProductDetails(productUrl);
+    ApiConstants.getEndpoint(ApiEndpoint.singleProduct, widget.productId);
+    productDetails = ProductDetailsController().fetchProductDetails(productUrl, ApiConstants.token!);
   }
 
   @override
@@ -175,7 +175,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ),
                               SizedBox(
                                   width:
-                                      MediaQuery.sizeOf(context).width * 0.05),
+                                  MediaQuery.sizeOf(context).width * 0.05),
                               Container(
                                 width: MediaQuery.of(context).size.width *
                                     0.7, // 80% of screen width
@@ -224,7 +224,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ),
                           SizedBox(
                               height:
-                                  MediaQuery.sizeOf(context).height * 0.015),
+                              MediaQuery.sizeOf(context).height * 0.015),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(

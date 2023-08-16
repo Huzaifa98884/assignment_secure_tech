@@ -65,7 +65,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
           width: MediaQuery.of(context).size.width * 0.8,
           child: FutureBuilder<List<AllProductsModel>>(
             future: productController.fetchProducts(
-                ApiConstants.getEndpoint(ApiEndpoint.allProducts)),
+                ApiConstants.getEndpoint(ApiEndpoint.allProducts),
+                ApiConstants.token!),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.builder(
